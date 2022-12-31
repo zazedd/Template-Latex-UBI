@@ -1,0 +1,213 @@
+\documentclass[chappg, 12pt,a4paper, hidelinks, oneside]{memoir}
+% \documentclass[titlepage,12pt,a4paper]{book}
+
+% substituir linha seguinte por 
+% \usepackage[english]{babel} 
+% se o relatório for escrito na língua inglesa.
+\usepackage[portuguese]{babel}
+
+\usepackage[utf8]{inputenc}
+\usepackage{makeidx}
+\usepackage{xspace}
+\usepackage{graphicx,color,times}
+\usepackage{fancyhdr}
+\usepackage{pxfonts}
+\usepackage{times}
+\usepackage{mathptm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{latexsym}
+\usepackage[printonlyused]{acronym}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{tocbibind}
+\usepackage{natbib}
+\usepackage{hyperref}
+\usepackage[T1]{fontenc}
+\usepackage{titlesec, blindtext, color}
+\usepackage{courier}
+\usepackage{fix-cm}
+\usepackage{fourier}
+\usepackage[scaled=.92]{helvet}
+\usepackage{geometry}
+
+% \usepackage{glossaries}
+% \makeglossaries
+
+% \renewcommand{\ttdefault}{phv}
+
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\fancyhf{} \fancyhead[L,RO]{\bfseries\thepage}
+\fancyhead[LO]{\bfseries\rightmark}
+\fancyhead[R]{\bfseries\leftmark}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0pt}
+\setlength{\headheight}{15.6pt}
+\setlength{\marginparsep}{0cm}
+\setlength{\marginparwidth}{0cm}
+\setlength{\marginparpush}{0cm}
+\addtolength{\hoffset}{-1.0cm}
+\addtolength{\oddsidemargin}{\evensidemargin}
+\addtolength{\oddsidemargin}{0.5cm}
+\addtolength{\evensidemargin}{0.5cm}
+
+\titleformat{\chapter}[hang]
+    {\Huge\bfseries}{\thechapter\hspace{0.75cm}\hsp\textcolor{gray75}{/}\hspace{0.75cm}}{0pt}{\Huge\bfseries\slshape}
+    \titlespacing*{\chapter}{0pt}{-10pt}{20pt}
+\titleformat{\section}[hang]
+    {\Large\bfseries}{\thesection\hspace{0.5cm}\textcolor{gray75}{|}\hspace{0.5cm}}{0pt}{\Large\bfseries}
+\titleformat{\subsection}[hang]
+    {\large\bfseries}{\thesubsection\hspace{0.2cm}\textcolor{gray75}{-}\hspace{0.2cm}}{0pt}{\large\bfseries}
+
+
+\usepackage{fix-cm}
+\usepackage{fourier}
+\usepackage[scaled=.92]{helvet}
+\definecolor{ChapGrey}{rgb}{0.6,0.6,0.6}
+\newcommand{\LargeFont}{
+  \usefont{\encodingdefault}{\rmdefault}{b}{n}
+  \fontsize{60}{80}\selectfont\color{ChapGrey}
+  }
+\makeatletter
+\makechapterstyle{GreyNum}{
+  \renewcommand{\chapnamefont}{\large\sffamily\bfseries\itshape}
+  \renewcommand{\chapnumfont}{\LargeFont}
+  \renewcommand{\chaptitlefont}{\Huge\sffamily\bfseries\itshape}
+  \setlength{\beforechapskip}{-20pt}
+  \setlength{\midchapskip}{-20pt}
+  \setlength{\afterchapskip}{-60pt}
+  \renewcommand\chapterheadstart{\vspace*{\beforechapskip}}
+  \renewcommand\printchaptername{
+  \begin{tabular}{@{}c@{}}
+    \chapnamefont \@chapapp\\}
+    \renewcommand\chapternamenum{\noalign{\vskip 2ex}}
+    \renewcommand\printchapternum{\chapnumfont\thechapter\par}
+    \renewcommand\afterchapternum{
+  \end{tabular}
+  \par\nobreak\vskip\midchapskip}
+  \renewcommand\printchapternonum{}
+  \renewcommand\printchaptertitle[1]{
+  {\chaptitlefont{##1}\par}}
+  \renewcommand\afterchaptertitle{\par\nobreak\vskip \afterchapskip}
+}
+\makeatother
+\chapterstyle{GreyNum}
+
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+\setsecnumdepth{subsubsection}
+
+\renewcommand{\ttdefault}{lmtt}
+
+
+% NEW COLORS
+\definecolor{gray75}{gray}{0.75}
+\definecolor{dark}{gray}{0.25}
+\definecolor{lgray}{gray}{0.9}
+\definecolor{dkblue}{rgb}{0,0.13,0.4}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{ %
+  language=C,                    basicstyle=\footnotesize,
+  numbers=none,                  numberstyle=\tiny\color{gray}, 
+  stepnumber=1,                  numbersep=5pt,
+  backgroundcolor=\color{white}, showspaces=false,
+  showstringspaces=false,        showtabs=false,
+  frame=single,                  rulecolor=\color{black},
+  tabsize=2,                     captionpos=b,
+  breaklines=true,               breakatwhitespace=false,
+  title=\lstname,                keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},  stringstyle=\color{mauve},
+  escapeinside={\%*}{*)},        morekeywords={*},
+  belowskip=0cm
+}
+
+\renewcommand{\lstlistingname}{Excerto de Código}
+\renewcommand{\lstlistlistingname}{Lista de Excertos de Código}
+
+\renewcommand{\today}{\day \ifcase \month \or Janeiro\or Fevereiro\or Março\or %
+Abril\or Maio\or Junho\or Julho\or Agosto\or Setembro\or Outubro\or Novembro\or %
+Dezembro\fi de \number \year} 
+
+\begin{document}
+
+\include{capa}
+
+\clearpage{\thispagestyle{empty}}
+\phantom{p. 1}
+\clearpage
+
+\frontmatter
+
+\include{ack_res_kw}
+
+
+\setlength{\beforechapskip}{0pt}
+\setlength{\midchapskip}{0pt}
+\setlength{\afterchapskip}{0pt}
+{\footnotesize\tableofcontents}
+\setlength{\beforechapskip}{-20pt}
+\setlength{\midchapskip}{-20pt}
+\setlength{\afterchapskip}{-60pt}
+
+\include{acronimos}
+
+\listoffigures
+\clearpage{\thispagestyle{empty}}
+\listoftables
+
+% #   ATENÇÃO
+% Se existirem trechos de código, descomentar as seguintes linhas
+% \clearpage{\thispagestyle{empty}\cleardoublepage}
+% \lstlistoflistings
+
+% \clearpage{\pagestyle{empty}\cleardoublepage}
+% \include{glossario}
+
+\phantom{p. 1}
+\clearpage
+\thispagestyle{empty}
+\phantom{p. 2}
+\clearpage
+
+\mainmatter
+\acresetall
+\include{introducao}
+\clearpage{\thispagestyle{empty}\cleardoublepage}
+\include{capitulo-2}
+\clearpage{\thispagestyle{empty}\cleardoublepage}
+\include{capitulo-3}
+\clearpage{\thispagestyle{empty}\cleardoublepage}
+\include{capitulo-4}
+\clearpage{\thispagestyle{empty}\cleardoublepage}
+\include{conc-trab-futuro}
+\clearpage{\thispagestyle{empty}\cleardoublepage}
+
+\backmatter
+
+\phantom{p. 1}
+\clearpage
+
+\include{epilogo}
+
+\bibliographystyle{unsrt}
+\bibliography{bibliografia}
+
+\include{anexos}
+
+\appendix
+\include{apendice1}
+\clearpage{\pagestyle{empty}\cleardoublepage}
+\include{continuacao}
+\clearpage{\pagestyle{empty}\cleardoublepage}
+\include{apendice2}
+\clearpage{\pagestyle{empty}\cleardoublepage}
+\include{apendice3}
+\clearpage{\pagestyle{empty}\cleardoublepage}
+
+\end{document}
